@@ -7,10 +7,10 @@ import { tmpdir } from 'node:os'
 // 便携播放器仍由测试中的 browser.newContext() 验证，保持无痕且无数据库。
 export const test = base.extend({
   context: async ({ context, browserName, playwright, baseURL, viewport, headless }, provideContext) => {
-    if (browserName !== 'webkit') { await provideContext(context); return }
+    if (browserName !== 'webkit') { await context.addInitScript(() => { if (location.protocol === 'http:' || location.protocol === 'https:') { localStorage.setItem('flow-landing-dismissed','1'); localStorage.setItem('flow-guide-dismissed-v1','1') } }); await provideContext(context); return }
     const profile = await mkdtemp(join(tmpdir(), 'flow-webkit-editor-'))
     const persistent = await playwright.webkit.launchPersistentContext(profile, { headless, baseURL, viewport })
-    try { await provideContext(persistent) }
+    try { await persistent.addInitScript(() => { if (location.protocol === 'http:' || location.protocol === 'https:') { localStorage.setItem('flow-landing-dismissed','1'); localStorage.setItem('flow-guide-dismissed-v1','1') } }); await provideContext(persistent) }
     finally { try { await persistent.close() } finally { await rm(profile, { recursive: true, force: true }) } }
   },
 })

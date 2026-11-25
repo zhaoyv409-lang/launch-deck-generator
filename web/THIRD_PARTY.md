@@ -1,4 +1,22 @@
+<!-- 2026-11-25：以下历史记录之后新增参考版界面恢复，详见本节。 -->
 # 组件与素材来源 · v0.3
+
+## 参考构建版界面恢复（2026-11-25）
+
+`LandingPage.jsx`、编辑分组、图标、媒体/图表/表格呈现、PPT 应用排版和页面 CSS，根据用户提供的 `n-build` 当前入口恢复为本仓库可编辑模块。未将整份构建 bundle 作为应用运行，也未复制打包其中的 React、Recharts、PptxGenJS 等依赖库；这些库仍来自 package.json。参考文件为 `index-mKoovMlv-s2-20261028.evidence-v3.js` 与 `index-BlYhxNIp.evidence-v3.css`，图表/PPT 的应用模块来自其相关分块。
+
+图片当前按参考版使用直接相框与原生大图对话框；不再启用历史记录中提到的 TiltedCard 运行路径。历史修改声明保留，避免丢失来源。
+
+`components/ui/dialog.tsx`、`select.tsx`、`sonner.tsx` 的关闭、选择及通知图标替换为参考 SVG，组件交互仍使用原有 Radix / Sonner；下表“未改组件实现”描述的是此前版本。
+
+`useReferenceSurfaces.ts` 恢复参考构建中的连续圆角路径和尺寸监听，用于页面表面的裁切效果。
+
+## 构建版对齐新增依赖
+
+- 展示字体使用用户提供的 `n-build/assets` 中的 Montserrat、Poppins、Lato、Raleway、Playfair Display、Bebas Neue WOFF2 原文件，以保持字宽与字重一致；SIL OFL 原文保存在 `public/licenses/*-OFL.txt`，ZIP/HTML 随附。原先的 `@fontsource/*` 依赖仍保留锁定，但当前样式不再加载其替代子集。
+- 编辑界面使用同一参考包内的 GT Standard L 400/500/600/700 文件，保存于 `src/assets/fonts/reference`。参考包未附这四个文件的单独授权文本；这里只记录来源，不将其声明为 OFL 或已获再分发授权。
+- `pptxgenjs` 4.0.1，MIT，原文在 `public/licenses/pptxgenjs-MIT.txt`；生成可编辑文本、表格和原生图表。应用修正其多余默认母版内容类型声明。
+- 原有 `next-themes` 0.4.6 用于编辑界面主题；Paper Shaders 扩展 Waves / SmokeRing / DotOrbit 参数接线；神奇移动使用 Web Animations API，不增加动画引擎。
 
 实际版本固定在 package.json 和 package-lock.json。应用只编写页面组合、槽位配置、主题样式、数据、素材保存和事件接线；未编写基础控件、shader、拖拽、播放器控件或动画引擎。
 

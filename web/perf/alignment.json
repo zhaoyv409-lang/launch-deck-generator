@@ -1,0 +1,401 @@
+{
+  "recordedAt": "2026-11-24T16:25:49.748Z",
+  "browser": "158.0.8127.37",
+  "viewport": "1920x1080",
+  "notes": [
+    "JSHeapUsedSize 不包括 Blob、图片解码与 GPU 内存；100ms 采样可能漏掉瞬时峰值。",
+    "200MiB 占位视频仅用于导出，不代表视频兼容性。",
+    "绝对帧耗时受本机 GPU 和浏览器运行模式影响，勿作为真机承诺。"
+  ],
+  "navigation": {
+    "elapsedMs": 9919,
+    "heapPeakBytes": 13411440,
+    "backingStoragePeakBytes": 3244338,
+    "longTasks": [],
+    "longFrames": [
+      58.5,
+      60.30000001192093,
+      96.7000000178814
+    ],
+    "projectWrites": 9,
+    "longestTaskMs": 0,
+    "longestFrameMs": 96.7000000178814
+  },
+  "typing": {
+    "elapsedMs": 6968,
+    "heapPeakBytes": 17881864,
+    "backingStoragePeakBytes": 2029980,
+    "longTasks": [],
+    "longFrames": [],
+    "projectWrites": 1,
+    "longestTaskMs": 0,
+    "longestFrameMs": 0
+  },
+  "exporting": {
+    "elapsedMs": 3215,
+    "heapPeakBytes": 18937412,
+    "backingStoragePeakBytes": 233363347,
+    "longTasks": [],
+    "longFrames": [],
+    "projectWrites": 0,
+    "longestTaskMs": 0,
+    "longestFrameMs": 0
+  },
+  "bundles": [
+    {
+      "path": "dist/assets/AlimamaShuHeiTi-Bold-oZI_x9cA.woff2",
+      "bytes": 594404,
+      "gzipBytes": 591465
+    },
+    {
+      "path": "dist/assets/archive-Bt2uEzxH.js",
+      "bytes": 15625,
+      "gzipBytes": 7272
+    },
+    {
+      "path": "dist/assets/bebas-neue-latin-400-normal-9mHNbWWO.woff2",
+      "bytes": 13768,
+      "gzipBytes": 13791
+    },
+    {
+      "path": "dist/assets/bebas-neue-latin-400-normal-Bi-ndsyu.woff",
+      "bytes": 11180,
+      "gzipBytes": 11174
+    },
+    {
+      "path": "dist/assets/browser-CNrzLBZm.js",
+      "bytes": 15082,
+      "gzipBytes": 7109
+    },
+    {
+      "path": "dist/assets/export-pptx-BgqGHeg-.js",
+      "bytes": 374455,
+      "gzipBytes": 125748
+    },
+    {
+      "path": "dist/assets/image.worker-BtjW3gOP.js",
+      "bytes": 1843,
+      "gzipBytes": 996
+    },
+    {
+      "path": "dist/assets/index-B0j_Zp8H.js",
+      "bytes": 879403,
+      "gzipBytes": 276888
+    },
+    {
+      "path": "dist/assets/index-DpLhb9yA.css",
+      "bytes": 93450,
+      "gzipBytes": 18636
+    },
+    {
+      "path": "dist/assets/lato-latin-400-normal-B11PyLys.woff",
+      "bytes": 17452,
+      "gzipBytes": 17348
+    },
+    {
+      "path": "dist/assets/lato-latin-400-normal-BEhtfm5r.woff2",
+      "bytes": 23580,
+      "gzipBytes": 23577
+    },
+    {
+      "path": "dist/assets/lato-latin-700-normal-BUGMgin4.woff2",
+      "bytes": 23040,
+      "gzipBytes": 23044
+    },
+    {
+      "path": "dist/assets/lato-latin-700-normal-DAdL7O4w.woff",
+      "bytes": 17624,
+      "gzipBytes": 17501
+    },
+    {
+      "path": "dist/assets/montserrat-latin-400-normal-BLhwKU8k.woff2",
+      "bytes": 18780,
+      "gzipBytes": 18808
+    },
+    {
+      "path": "dist/assets/montserrat-latin-400-normal-xItZbAXg.woff",
+      "bytes": 20648,
+      "gzipBytes": 20668
+    },
+    {
+      "path": "dist/assets/montserrat-latin-700-normal-BdjcYUrC.woff2",
+      "bytes": 18824,
+      "gzipBytes": 18852
+    },
+    {
+      "path": "dist/assets/montserrat-latin-700-normal-BWkrl476.woff",
+      "bytes": 20672,
+      "gzipBytes": 20689
+    },
+    {
+      "path": "dist/assets/playfair-display-latin-400-normal-CFtfchNt.woff2",
+      "bytes": 21856,
+      "gzipBytes": 21829
+    },
+    {
+      "path": "dist/assets/playfair-display-latin-400-normal-DHYHbkg3.woff",
+      "bytes": 26900,
+      "gzipBytes": 26663
+    },
+    {
+      "path": "dist/assets/playfair-display-latin-700-normal-Bc_1Q1cG.woff",
+      "bytes": 28296,
+      "gzipBytes": 28077
+    },
+    {
+      "path": "dist/assets/playfair-display-latin-700-normal-CuDiGg7c.woff2",
+      "bytes": 23224,
+      "gzipBytes": 23155
+    },
+    {
+      "path": "dist/assets/poppins-latin-400-normal-BOb3E3N0.woff",
+      "bytes": 10532,
+      "gzipBytes": 10521
+    },
+    {
+      "path": "dist/assets/poppins-latin-400-normal-cpxAROuN.woff2",
+      "bytes": 7884,
+      "gzipBytes": 7907
+    },
+    {
+      "path": "dist/assets/poppins-latin-700-normal-BVuQR_eA.woff",
+      "bytes": 10432,
+      "gzipBytes": 10417
+    },
+    {
+      "path": "dist/assets/poppins-latin-700-normal-Qrb0O0WB.woff2",
+      "bytes": 7816,
+      "gzipBytes": 7839
+    },
+    {
+      "path": "dist/assets/raleway-latin-400-normal-C5eIEfLm.woff2",
+      "bytes": 22408,
+      "gzipBytes": 22400
+    },
+    {
+      "path": "dist/assets/raleway-latin-400-normal-sMcq1OIP.woff",
+      "bytes": 22460,
+      "gzipBytes": 22255
+    },
+    {
+      "path": "dist/assets/raleway-latin-700-normal-BVpQLp0x.woff2",
+      "bytes": 22696,
+      "gzipBytes": 22673
+    },
+    {
+      "path": "dist/assets/raleway-latin-700-normal-JVwBSLev.woff",
+      "bytes": 22800,
+      "gzipBytes": 22622
+    },
+    {
+      "path": "dist/assets/rolldown-runtime-BCiCTKAo.js",
+      "bytes": 1301,
+      "gzipBytes": 711
+    },
+    {
+      "path": "dist/assets/SceneChartView-CZy5O9o9.js",
+      "bytes": 405980,
+      "gzipBytes": 113627
+    },
+    {
+      "path": "dist/assets/ShaderBackdrop-D-41Jc7A.js",
+      "bytes": 63747,
+      "gzipBytes": 30398
+    },
+    {
+      "path": "dist/assets/three.module-C8enonVg.js",
+      "bytes": 736440,
+      "gzipBytes": 185282
+    },
+    {
+      "path": "dist/assets/vanta-clouds2-noise-CSy_EG5b.png",
+      "bytes": 264082,
+      "gzipBytes": 263734
+    },
+    {
+      "path": "dist/assets/vanta.clouds.min-DnN5kt4c.js",
+      "bytes": 15035,
+      "gzipBytes": 5055
+    },
+    {
+      "path": "dist/assets/vanta.clouds2.min-Ckb1BOkO.js",
+      "bytes": 11369,
+      "gzipBytes": 3977
+    },
+    {
+      "path": "dist/assets/VantaBackdrop-CzwMNSzL.js",
+      "bytes": 2631,
+      "gzipBytes": 1338
+    },
+    {
+      "path": "dist/assets/__vite-browser-external-DGgK3jMU.js",
+      "bytes": 103,
+      "gzipBytes": 117
+    },
+    {
+      "path": ".player-build/assets/AlimamaShuHeiTi-Bold-oZI_x9cA.woff2",
+      "bytes": 594404,
+      "gzipBytes": 591465
+    },
+    {
+      "path": ".player-build/assets/bebas-neue-latin-400-normal-9mHNbWWO.woff2",
+      "bytes": 13768,
+      "gzipBytes": 13791
+    },
+    {
+      "path": ".player-build/assets/bebas-neue-latin-400-normal-Bi-ndsyu.woff",
+      "bytes": 11180,
+      "gzipBytes": 11174
+    },
+    {
+      "path": ".player-build/assets/lato-latin-400-normal-B11PyLys.woff",
+      "bytes": 17452,
+      "gzipBytes": 17348
+    },
+    {
+      "path": ".player-build/assets/lato-latin-400-normal-BEhtfm5r.woff2",
+      "bytes": 23580,
+      "gzipBytes": 23577
+    },
+    {
+      "path": ".player-build/assets/lato-latin-700-normal-BUGMgin4.woff2",
+      "bytes": 23040,
+      "gzipBytes": 23044
+    },
+    {
+      "path": ".player-build/assets/lato-latin-700-normal-DAdL7O4w.woff",
+      "bytes": 17624,
+      "gzipBytes": 17501
+    },
+    {
+      "path": ".player-build/assets/montserrat-latin-400-normal-BLhwKU8k.woff2",
+      "bytes": 18780,
+      "gzipBytes": 18808
+    },
+    {
+      "path": ".player-build/assets/montserrat-latin-400-normal-xItZbAXg.woff",
+      "bytes": 20648,
+      "gzipBytes": 20668
+    },
+    {
+      "path": ".player-build/assets/montserrat-latin-700-normal-BdjcYUrC.woff2",
+      "bytes": 18824,
+      "gzipBytes": 18852
+    },
+    {
+      "path": ".player-build/assets/montserrat-latin-700-normal-BWkrl476.woff",
+      "bytes": 20672,
+      "gzipBytes": 20689
+    },
+    {
+      "path": ".player-build/assets/player-C1gPPPlI.css",
+      "bytes": 93246,
+      "gzipBytes": 18766
+    },
+    {
+      "path": ".player-build/assets/player-CZVKXaf_.js",
+      "bytes": 532105,
+      "gzipBytes": 170927
+    },
+    {
+      "path": ".player-build/assets/playfair-display-latin-400-normal-CFtfchNt.woff2",
+      "bytes": 21856,
+      "gzipBytes": 21829
+    },
+    {
+      "path": ".player-build/assets/playfair-display-latin-400-normal-DHYHbkg3.woff",
+      "bytes": 26900,
+      "gzipBytes": 26663
+    },
+    {
+      "path": ".player-build/assets/playfair-display-latin-700-normal-Bc_1Q1cG.woff",
+      "bytes": 28296,
+      "gzipBytes": 28077
+    },
+    {
+      "path": ".player-build/assets/playfair-display-latin-700-normal-CuDiGg7c.woff2",
+      "bytes": 23224,
+      "gzipBytes": 23155
+    },
+    {
+      "path": ".player-build/assets/poppins-latin-400-normal-BOb3E3N0.woff",
+      "bytes": 10532,
+      "gzipBytes": 10521
+    },
+    {
+      "path": ".player-build/assets/poppins-latin-400-normal-cpxAROuN.woff2",
+      "bytes": 7884,
+      "gzipBytes": 7907
+    },
+    {
+      "path": ".player-build/assets/poppins-latin-700-normal-BVuQR_eA.woff",
+      "bytes": 10432,
+      "gzipBytes": 10417
+    },
+    {
+      "path": ".player-build/assets/poppins-latin-700-normal-Qrb0O0WB.woff2",
+      "bytes": 7816,
+      "gzipBytes": 7839
+    },
+    {
+      "path": ".player-build/assets/raleway-latin-400-normal-C5eIEfLm.woff2",
+      "bytes": 22408,
+      "gzipBytes": 22400
+    },
+    {
+      "path": ".player-build/assets/raleway-latin-400-normal-sMcq1OIP.woff",
+      "bytes": 22460,
+      "gzipBytes": 22255
+    },
+    {
+      "path": ".player-build/assets/raleway-latin-700-normal-BVpQLp0x.woff2",
+      "bytes": 22696,
+      "gzipBytes": 22673
+    },
+    {
+      "path": ".player-build/assets/raleway-latin-700-normal-JVwBSLev.woff",
+      "bytes": 22800,
+      "gzipBytes": 22622
+    },
+    {
+      "path": ".player-build/assets/rolldown-runtime-BWaJ3C7D.js",
+      "bytes": 911,
+      "gzipBytes": 512
+    },
+    {
+      "path": ".player-build/assets/SceneChartView-ClkYVvob.js",
+      "bytes": 405981,
+      "gzipBytes": 113640
+    },
+    {
+      "path": ".player-build/assets/ShaderBackdrop-HXZeEQBK.js",
+      "bytes": 63748,
+      "gzipBytes": 30399
+    },
+    {
+      "path": ".player-build/assets/three.module-C8enonVg.js",
+      "bytes": 736440,
+      "gzipBytes": 185282
+    },
+    {
+      "path": ".player-build/assets/vanta-clouds2-noise-CSy_EG5b.png",
+      "bytes": 264082,
+      "gzipBytes": 263734
+    },
+    {
+      "path": ".player-build/assets/vanta.clouds.min-Dl28xDvi.js",
+      "bytes": 15035,
+      "gzipBytes": 5055
+    },
+    {
+      "path": ".player-build/assets/vanta.clouds2.min-Dt3Gkkmj.js",
+      "bytes": 11369,
+      "gzipBytes": 3978
+    },
+    {
+      "path": ".player-build/assets/VantaBackdrop-Q5SiB6Jg.js",
+      "bytes": 2676,
+      "gzipBytes": 1356
+    }
+  ]
+}

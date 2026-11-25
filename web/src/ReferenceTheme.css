@@ -1,0 +1,190 @@
+/* Theme tokens from the supplied n-build evidence-v3 build. */
+:root {
+  --radius: 1.5rem;
+  --background: #0d0d10;
+  --foreground: #f5f5f7;
+  --card: #1d1d1fb8;
+  --card-foreground: #f5f5f7;
+  --popover: #1c1c1f;
+  --popover-foreground: #f5f5f7;
+  --primary: #f5f5f7;
+  --primary-foreground: #1d1d1f;
+  --secondary: #f5f5f714;
+  --secondary-foreground: #f5f5f7;
+  --muted: #f5f5f70f;
+  --muted-foreground: #f5f5f780;
+  --accent: #f5f5f714;
+  --accent-foreground: #f5f5f7;
+  --destructive: #f1555b;
+  --border: #f5f5f724;
+  --input: #f5f5f729;
+  --ring: #72a8e8a6;
+  --hark-text-primary: #f5f5f7;
+  --hark-text-secondary: #f5f5f79e;
+  --hark-text-tertiary: #f5f5f773;
+  --hark-text-faint: #f5f5f761;
+  --hark-stroke: #f5f5f724;
+  --hark-stroke-strong: #f5f5f738;
+  --hark-wash: #f5f5f70f;
+  --hark-chrome-bg: #1010148c;
+  --hark-sheet-bg: #121216d6;
+  --hark-sheet-solid: #16161af0;
+  --hark-dialog-bg: #141418eb;
+  --hark-input-bg: #f5f5f70d;
+  --hark-input-border: #f5f5f71f;
+  --hark-control-bg: #f5f5f712;
+  --hark-tile-bg: #f5f5f70d;
+  --hark-preview: linear-gradient(125deg, #2a2a31, #1b1b21);
+  --hark-page: #0d0d10;
+  --hark-shadow: 0 12px 40px #00000061;
+  --hark-sheet-shadow: 0 24px 90px #00000080;
+  --hark-attention: #f5f5f7;
+  --hark-save-ok: #78dcaad9;
+  --lightningcss-light: ;
+  --lightningcss-dark: initial;
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    SF Pro Text,
+    Inter,
+    PingFang SC,
+    Microsoft YaHei,
+    sans-serif;
+}
+html.light {
+  --background: #eef0f3;
+  --foreground: #1d1d1f;
+  --card: #fffc;
+  --card-foreground: #1d1d1f;
+  --popover: #fff;
+  --popover-foreground: #1d1d1f;
+  --secondary: #1d1d1f0d;
+  --secondary-foreground: #1d1d1f;
+  --muted: #1d1d1f0d;
+  --muted-foreground: #1d1d1f80;
+  --accent: #1d1d1f0d;
+  --accent-foreground: #1d1d1f;
+  --border: #1d1d1f1f;
+  --input: #1d1d1f24;
+  --hark-text-primary: #1d1d1f;
+  --hark-text-secondary: #1d1d1f9e;
+  --hark-text-tertiary: #1d1d1f7a;
+  --hark-text-faint: #1d1d1f61;
+  --hark-stroke: #1d1d1f1f;
+  --hark-stroke-strong: #1d1d1f33;
+  --hark-wash: #1d1d1f0d;
+  --hark-chrome-bg: #fff9;
+  --hark-sheet-bg: #ffffffc7;
+  --hark-sheet-solid: #fafafcf7;
+  --hark-dialog-bg: #fcfcfef2;
+  --hark-input-bg: #ffffffb3;
+  --hark-input-border: #1d1d1f21;
+  --hark-control-bg: #1d1d1f0d;
+  --hark-tile-bg: #ffffff8c;
+  --hark-preview: linear-gradient(125deg, #eceef2, #dde2ea);
+  --hark-page: #eef0f3;
+  --hark-shadow: 0 12px 40px #1f294224;
+  --hark-sheet-shadow: 0 24px 90px #1f294238;
+  --hark-save-ok: #008c5acc;
+  --lightningcss-light: initial;
+  --lightningcss-dark: ;
+  color-scheme: light;
+}
+
+@font-face {
+  font-family: GT Standard L;
+  src: url(./assets/fonts/reference/GT-Standard-L-Regular-DXTyW8mc.woff2)
+    format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: GT Standard L;
+  src: url(./assets/fonts/reference/GT-Standard-L-Medium-BDsqGhKS.woff2)
+    format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: GT Standard L;
+  src: url(./assets/fonts/reference/GT-Standard-L-Semibold-cqzJajLp.woff2)
+    format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: GT Standard L;
+  src: url(./assets/fonts/reference/GT-Standard-L-Bold-qdLR3wf6.woff2)
+    format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+:root {
+  --hark-text-primary: #f5f5f7;
+  --hark-text-secondary: #f5f5f780;
+  --hark-text-tertiary: #f5f5f780;
+  --hark-text-faint: #f5f5f766;
+  --hark-stroke: #f5f5f724;
+  --hark-stroke-strong: #f5f5f73d;
+  --hark-wash: #f5f5f70d;
+  --hark-chrome-bg: #1d1d1f9e;
+  --hark-sheet-bg: #1d1d1f9e;
+  --hark-sheet-solid: #1d1d1ff5;
+  --hark-dialog-bg: #1d1d1ff5;
+  --hark-input-bg: #f5f5f70d;
+  --hark-input-border: #f5f5f724;
+  --hark-control-bg: #f5f5f70d;
+  --hark-tile-bg: #f5f5f70d;
+  --hark-fill: #f5f5f7;
+  --hark-on-fill: #1d1d1f;
+  --hark-attention: var(--hark-fill);
+  --hark-shadow: 0 8px 40px #0000002e;
+  --hark-sheet-shadow: 0 8px 40px #0000002e;
+  --hark-mode-duration: 0.8s;
+  --hark-mode-ease: cubic-bezier(0.45, 0, 0.55, 1);
+  font-family:
+    GT Standard L,
+    -apple-system,
+    BlinkMacSystemFont,
+    PingFang SC,
+    Microsoft YaHei,
+    sans-serif;
+}
+html.light {
+  --hark-text-primary: #1d1d1f;
+  --hark-text-secondary: #1d1d1f80;
+  --hark-text-tertiary: #1d1d1f80;
+  --hark-text-faint: #1d1d1f66;
+  --hark-stroke: #1d1d1f24;
+  --hark-stroke-strong: #1d1d1f3d;
+  --hark-wash: #1d1d1f0d;
+  --hark-chrome-bg: #fffa;
+  --hark-sheet-bg: #fffa;
+  --hark-sheet-solid: #fffffff5;
+  --hark-dialog-bg: #fffffff5;
+  --hark-input-bg: #ffffff4d;
+  --hark-input-border: #1d1d1f24;
+  --hark-control-bg: #1d1d1f0d;
+  --hark-tile-bg: #ffffff4d;
+  --hark-fill: #1d1d1f;
+  --hark-on-fill: #f9f9fa;
+  --primary: #1d1d1f;
+  --primary-foreground: #f9f9fa;
+  --hark-shadow: 0 8px 40px #1d1d1f1f;
+  --hark-sheet-shadow: 0 8px 40px #1d1d1f1f;
+}
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+body {
+  overflow: hidden;
+}

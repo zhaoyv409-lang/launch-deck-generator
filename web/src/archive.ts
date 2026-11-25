@@ -31,10 +31,12 @@ export async function exportProjectStream(project: Project, media: Media[], vari
   extras['agent-add-example.json'] = strToU8(JSON.stringify({ presetId: 'pair', name: '交给 Agent 的一屏', headings: ['本地图片，', '直接交给网页。'], texts: ['images 里写文件路径，素材会复制进运行包。'], images: ['./photo.jpg'], photoEffect: 'still' }, null, 2))
   extras['组件与许可.txt'] = strToU8('React MIT；Swiper MIT；Paper Shaders Apache-2.0；Vanta MIT；three MIT；shadcn/ui & Radix MIT；Motion MIT；Recharts MIT；fflate MIT；client-zip MIT（打包器）；Zustand / zundo MIT（编辑器）；Lucide ISC；React Bits MIT + Commons Clause（组件作为完整应用一部分打包，勿单独转售或再分发组件库）。\n阿里妈妈数黑体：阿里巴巴集团官方发布，免费可用于商业用途，选择该字体时随包本地加载，未使用时不携带字体文件，无外站字体依赖。\n源码与许可证见项目 THIRD_PARTY.md。\n')
   extras['部署说明.txt'] = strToU8('发布为网页\n\n将解压后的整个目录上传到静态网站目录，通过 HTTPS 链接分享；可放在任意子路径。\nindex.html 与 project.json 应使用 no-cache；视频服务应支持 HTTP Range。\n如需社交平台分享封面，请为 og:image 配置部署后的绝对地址。\n本地演示运行 node start.mjs，不要通过 file:// 双击打开。\n')
-  const hasCustomFont = project.scenes.some(s => s.font === 'alimama')
+  const fontPrefixes: Record<string, string> = { alimama: 'AlimamaShuHeiTi', montserrat: 'Montserrat', poppins: 'Poppins', lato: 'Lato', raleway: 'Raleway', playfair: 'PlayfairDisplay', bebas: 'BebasNeue' }
+  const usedFonts = [...new Set(project.scenes.map(s => fontPrefixes[s.font || 'sans']).filter(Boolean))]
   async function* inputs() {
     for (const name of files) {
-      if (!hasCustomFont && name.endsWith('.woff2')) continue
+      if (/\.woff2?$/.test(name) && !name.includes('GT-Standard-L-') && !usedFonts.some(font => name.startsWith('assets/' + font))) continue
+      if (name === 'single.html') continue
       const response = await fetch(`${import.meta.env.BASE_URL}player/${name}`)
       if (!response.ok) throw new Error(`播放器文件缺失：${name}`)
       if (name === 'index.html') {
@@ -48,7 +50,7 @@ export async function exportProjectStream(project: Project, media: Media[], vari
       if (entry.variants?.medium) yield { name: entry.variants.medium.path, input: variants.find(v => v.mediaId === entry.id && v.kind === 'medium')!.blob }
     }
     for (const [name, input] of Object.entries(extras)) yield { name, input, ...(name === 'start.command' ? { mode: 0o755 } : {}) }
-    for (const [name, source] of [['许可证/React-Bits.txt', 'licenses/react-bits.txt'], ['许可证/shadcn.txt', 'licenses/shadcn.txt'], ['许可证/Paper-Shaders.txt', 'licenses/paper-shaders.txt'], ['许可证/Paper-Shaders-NOTICE.txt', 'licenses/paper-shaders-notice.txt']]) {
+    for (const [name, source] of [['许可证/React-Bits.txt', 'licenses/react-bits.txt'], ['许可证/shadcn.txt', 'licenses/shadcn.txt'], ['许可证/Paper-Shaders.txt', 'licenses/paper-shaders.txt'], ['许可证/Paper-Shaders-NOTICE.txt', 'licenses/paper-shaders-notice.txt'], ...['montserrat', 'poppins', 'lato', 'raleway', 'playfair-display', 'bebas-neue'].map(f => ['许可证/' + f + '-OFL.txt', 'licenses/' + f + '-OFL.txt'])]) {
       const response = await fetch(`${import.meta.env.BASE_URL}${source}`)
       if (!response.ok) throw new Error('缺少上游许可文件，未生成不完整的运行包')
       yield { name, input: response }
@@ -105,4 +107,27 @@ export async function importProjectZip(file: File) {
   // 运行包可能来自当前项目的旧版本；新 id 防止覆盖备份仍引用的同名媒体。
   const remap = new Map(media.map(m => [m.id, crypto.randomUUID()]))
   return { project: { ...project, scenes: project.scenes.map(s => ({ ...s, photos: s.photos.map(p => ({ ...p, mediaId: remap.get(p.mediaId)! })), videoId: s.videoId ? remap.get(s.videoId) : undefined, posterId: s.posterId ? remap.get(s.posterId) : undefined })) }, media: media.map(m => ({ ...m, id: remap.get(m.id)! })) }
+}
+
+const blobDataUrl = (blob: Blob) => new Promise<string>((resolve, reject) => {
+  const reader = new FileReader(); reader.onload = () => resolve(String(reader.result)); reader.onerror = () => reject(reader.error); reader.readAsDataURL(blob)
+})
+export async function exportSingleHtml(project: Project, media: Media[], variants: ImageVariant[] = []) {
+  const wanted = new Set(referencedMedia(project)), assets = media.filter(m => wanted.has(m.id))
+  if (assets.length !== wanted.size) throw new Error('项目中存在缺失素材')
+  if (assets.reduce((n, m) => n + m.blob.size, 0) + variants.filter(v => wanted.has(v.mediaId) && v.kind === 'medium').reduce((n, v) => n + v.blob.size, 0) > 150 * 1024 ** 2) throw new Error('素材超过 150 MB，请改用 ZIP 运行包，避免单文件导出占用过多内存')
+  const response = await fetch(`${import.meta.env.BASE_URL}player/single.html`)
+  if (!response.ok) throw new Error('单文件播放器尚未构建')
+  const manifest: PortableManifest = { format: 'flow-web', version: 2, project, media: [] }
+  for (const m of assets) {
+    const medium = variants.find(v => v.mediaId === m.id && v.kind === 'medium')
+    manifest.media.push({ id: m.id, name: m.name, type: m.type, path: await blobDataUrl(m.blob), variants: medium ? { medium: { path: await blobDataUrl(medium.blob), type: medium.type, width: medium.width, height: medium.height } } : undefined })
+  }
+  const data = JSON.stringify(manifest).replaceAll('<', '\\u003c')
+  let html = (await response.text()).replace(/<title>.*?<\/title>/s, () => `<title>${escapeHtml(project.name)}</title>`)
+  const notices = await Promise.all(['react-bits.txt', 'shadcn.txt', 'paper-shaders.txt', 'paper-shaders-notice.txt', ...['montserrat', 'poppins', 'lato', 'raleway', 'playfair-display', 'bebas-neue'].map(f => f + '-OFL.txt')].map(async f => {
+    const r = await fetch(`${import.meta.env.BASE_URL}licenses/${f}`); if (!r.ok) throw new Error('缺少许可证：' + f); return r.text()
+  }))
+  html = html.replace('<head>', () => `<head><script id="flow-project" type="application/json">${data}</script><!-- ${notices.join('\n').replaceAll('--', '—')} -->`)
+  return new Blob([html], { type: 'text/html;charset=utf-8' })
 }

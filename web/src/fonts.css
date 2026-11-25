@@ -1,0 +1,58 @@
+/* Display font files from the supplied reference build. See THIRD_PARTY.md. */
+@font-face {
+  font-family: Montserrat;
+  src: url(./assets/fonts/reference/Montserrat-Dk9Pm7OY.woff2) format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Poppins;
+  src: url(./assets/fonts/reference/Poppins-400-BwTUGeWf.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Poppins;
+  src: url(./assets/fonts/reference/Poppins-700-g9MkRaG0.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Lato;
+  src: url(./assets/fonts/reference/Lato-400-DXRmO6t1.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Lato;
+  src: url(./assets/fonts/reference/Lato-700-D0hIvJyG.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Raleway;
+  src: url(./assets/fonts/reference/Raleway-CGbyi9Q1.woff2) format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Playfair Display;
+  src: url(./assets/fonts/reference/PlayfairDisplay-CSUZDoAs.woff2)
+    format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Bebas Neue;
+  src: url(./assets/fonts/reference/BebasNeue-CoNGBGqG.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

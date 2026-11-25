@@ -38,3 +38,5 @@ releases/
 
 # 脚本运行临时目录
 tmpfont/
+
+.single-build/

@@ -1,6 +1,39 @@
 # Agent 调用入口
 
-Agent 与用户使用同一组 18 个受限预设，没有单独的自由画布模式。共享定义在 `src/presets.json`：每个预设固定主标题、小文本和图片位数量，始终不超过 2 / 2 / 6。字号与位置由预设自动决定。
+## 对齐版新增接口与规则
+
+浏览器与离线 CLI 使用同一 `web/src/model.ts`。构建时转译为运行包 `model.mjs`，修改模型后重新运行 `npm run build:player`。完整预设列表以 `listPresets()` 为准。
+
+```js
+window.flowAgent.help()
+await window.flowAgent.goTo(3) // 编号从 1 开始
+await window.flowAgent.ping('Codex')
+await window.flowAgent.report('awaiting-auth')
+window.flowAgent.getConnection()
+await window.flowAgent.apply({
+  scene: 1, presetId: 'screenshot-trio', fontSize: 1.15,
+  fit: 'contain', photoRotation: 0, photoAspect: '16:9',
+  photoSettings: [{ index: 1, rotation: -4, fit: 'contain', aspect: '4:3', caption: '关键流程' }],
+})
+await window.flowAgent.addScene({
+  presetId: 'chart-insight', chartUnit: '万元', chartShowData: true,
+  chart: { type: 'bar', categories: ['Q1', 'Q2'], series: [{ label: '收入', values: [20, 28] }] },
+})
+await window.flowAgent.setTransition('magic')
+```
+
+- `report` 接受 awaiting-auth / authorizing / configuring-mcp / installing-extension / checking / connected。状态由 Agent 主动报告，表示最近一次握手或进度，不代表持续网络连通性，也不自动安装插件。
+- `fontSize` 规范化到 0.6–1.6；旋转限制在 -180–180；`photoSettings.index` 从 1 开始。逐图设置优先，比例 auto 跟随整页；fit 未设时跟随整页。
+- `table` 最多 13×8，每格 120 字。样式 plain / striped / comparison；行距 comfortable / compact。非二维数组拒绝写入；超限行列和字符按上述上限截断。
+- `chart.type` 支持 line / bar / pie；饼图使用第一系列，负值按零。明细仅在 chart-insight 且 chartShowData 非 false 时展示。
+- 新增字体 montserrat / poppins / lato / raleway / playfair / bebas，拉丁字库本地随包，中文使用系统回退。原有 sans / serif / alimama / georgia / arial / trebuchet / verdana / courier 保留。
+- 背景新增 waves / smoke / orbit，转场新增 magic，与旧版已移除的 dots 无关。
+- CLI 补丁的 background / transition 设置全局字段；goTo 和连接状态属于编辑器接口。
+- `mediaVersion: 1` 标记当前图片设置格式，旧作品明确保存的 cover 保留，新页默认 contain。
+
+## 基本用法
+
+Agent 与用户使用同一组 35 个受限预设，没有单独的自由画布模式。共享定义在 `src/presets.json`：每个预设固定主标题、小文本和图片位数量，始终不超过 2 / 2 / 6。位置由预设决定，字号可在自动适配基础上调整。
 
 本文中的 `src/`、`scripts/` 路径均相对于仓库内的 `web/` 目录。
 
@@ -8,7 +41,7 @@ Agent 与用户使用同一组 18 个受限预设，没有单独的自由画布�
 
 编辑器会禁用当前版式不适用的选项：收尾黑场与已放入视频的纯影像页不能调整背景；纯单图 / 纯影像不显示脚注；没有主标题时 `textEffect` 不生效，关闭 `motion` 后不能选择或预览动效。`setBackground` 仍是全局设置，收尾黑场不随之改变。收尾文字宜直接传入浅色 Hex，深色值会按共享的 `getSceneInk` 规则回退到浅色，以兼容已有项目。
 
-18 个预设覆盖：纯文字（只说一句 / 两行主张 / 一段叙事）、纯单图（一张照片）、图文（一图一文 / 一图叙事 / 双图对话 / 双图叙事 / 三图灵感 / 四图故事 / 六图画廊）、视频（影像时刻 / 影像主张 / 纯影像）、折线图（趋势图表 / 一页图表）、表格（信息对照）、结尾收束。
+35 个预设覆盖：纯文字（只说一句 / 两行主张 / 一段叙事）、纯单图（一张照片）、图文（一图一文 / 一图叙事 / 双图对话 / 双图叙事 / 三图灵感 / 四图故事 / 六图画廊）、视频（影像时刻 / 影像主张 / 纯影像）、折线图（趋势图表 / 一页图表）、表格（信息对照）、结尾收束。
 
 v0.3 新增场景字段：`footnote`（脚注，≤120 字）、`chart`（折线图数据）；新增项目字段：`background.kind`（mesh 流动渐变 / grain 柔雾颗粒 / clouds 云朵 / clouds2 云朵 · 层次 / solid 纯色）、`transition`（creative 纵深漂移 / fade 柔和淡入 / cards 卡片推进）。色板含深色（墨夜 / 深海 / 余烬 / 极光 / 暖波）、云朵（积云 / 夕云）与纯色（白纸 / 纯黑 / 冷白），每个色板自带建议文字色、用 preset 切换时整页文字色自动跟随；文字颜色另有 8 个常用色板加任意 Hex。图片效果新增 `lift`（轻浮抬升 + 更深阴影）。v0.3.1 已移除“网格 / 星点”点阵色板与 dots 背景，移除“圆润无衬线”字体。
 
@@ -139,7 +172,7 @@ node start.mjs
 
 只改全局背景或转场时，`apply` 可以不写 `scene`；涉及场景字段（headings / texts / footnote / chart / images / video 等）则必须给出 `scene` 编号。
 
-`add` 使用的 JSON 不需要 `scene` 字段，其余字段与 `apply` 相同，可带 `name` 自定义这一屏的名字。运行 `apply` / `add` 会校验预设 / 数量 / 字体 / 颜色 / 动效枚举和素材格式，备份为 `project.before-agent.json`，再修改 `project.json`。刷新正在运行的网页即可生效。原媒体文件随包保留；切换预设只使用该预设允许的槽位，超出数量的图片只采用前 N 张并在终端提醒。
+`add` 使用的 JSON 不需要 `scene` 字段，其余字段与 `apply` 相同，可带 `name` 自定义这一屏的名字。运行 `apply` / `add` 会校验预设 / 数量 / 字体 / 颜色 / 动效枚举和素材格式，备份为 `project.before-agent.json`，再修改 `project.json`。刷新正在运行的网页即可生效。原媒体文件随包保留；切换预设只使用该预设允许的槽位，超出容量的图片只采用前 N 张。
 
 支持的素材格式：图片 jpg / png / webp / gif，视频 mp4 / webm / mov。
 
@@ -156,8 +189,8 @@ node start.mjs
 **1. 拉取并读懂项目**
 
 - 编辑器与播放器共用 `src/model.ts` / `src/presets.json` / `src/Experience.tsx`，视觉规则只有一套。
-- `presets.json` 列出现成 18 个预设。`limits` 常量统一约束（≤100 屏 / 2 标题 / 2 文本 / 6 图 / 12 数据点 / 3 系列）。
-- 用户提供的素材多以本地文件形式给出时，用运行包的 `agent.mjs add` 复制；若以 base64 提供，用 `window.flowAgent` 或运行包 JSON 直接放 data URL。
+- `presets.json` 列出现成 35 个预设。`limits` 常量统一约束（≤100 屏 / 2 标题 / 2 文本 / 6 图 / 12 数据点 / 3 系列）。
+- 用户提供的素材多以本地文件形式给出时，用运行包的 `agent.mjs add` 复制；若以 base64 提供，用 `window.flowAgent` ；运行包 CLI 使用本地文件路径。
 - 「可控性」来自：版式预设固定、媒体 GC 自动回收、保存队列串行，写入安全有备份（`before-agent-backup` / `before-preset-backup`）。
 
 **2. 引导用户提供素材**
@@ -167,7 +200,7 @@ node start.mjs
 - 开场主张（一句话、一句副标题）
 - 三到五个分段故事（每段选合适预设：一图叙事 / 双图对话 / 三图灵感 / 趋势图表 / 表格）
 - 收尾（outro `谢谢。`，或加联系人）
-- 整体氛围：让用户在 15 个背景色板中选，或描述景色（晨光 / 墨夜 / 极光 / 沙丘 / 云朵），Agent 用 `setBackground` 一键切换
+- 整体氛围：让用户在 21 个背景色板中选，或描述景色（晨光 / 墨夜 / 极光 / 沙丘 / 云朵），Agent 用 `setBackground` 一键切换
 
 如果用户的素材超出预设上限（如 7 张图），主动建议拆成两屏，或替换为「六图画廊」。
 
@@ -175,7 +208,7 @@ node start.mjs
 
 - 先 `addScene` 创建起承转合，再批量 `apply` 注入用户的图片 / 视频素材。
 - 单个场景字段错误时 API 会立即报错，不会污染项目；可以放心重试。
-- 每项 commit 前自动备份到 IndexedDB 的 `projects/before-agent-backup`。当前没有“打开最近备份”按钮，需要由 Agent 或开发工具读取备份后恢复。
+- 每次 Agent 修改前备份，按类型保留最近 12 份。用户从“更多操作 → 恢复备份”找回，恢复前自动保留当前作品。
 
 **4. 用户继续自编辑**
 

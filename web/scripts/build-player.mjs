@@ -1,3 +1,4 @@
+import ts from 'typescript'
 import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises'
 import { resolve, relative } from 'node:path'
 const root = resolve(import.meta.dirname, '..')
@@ -11,6 +12,16 @@ await rm(resolve(target, 'player.html'))
 await cp(resolve(root, 'scripts/portable-server.mjs'), resolve(target, 'start.mjs'))
 await cp(resolve(root, 'scripts/portable-agent.mjs'), resolve(target, 'agent.mjs'))
 await cp(resolve(root, 'src/presets.json'), resolve(target, 'presets.json'))
+const modelSource = (await readFile(resolve(root, 'src/model.ts'), 'utf8')).replace("import presetData from './presets.json'", 'const presetData = ' + await readFile(resolve(root, 'src/presets.json'), 'utf8'))
+await writeFile(resolve(target, 'model.mjs'), ts.transpileModule(modelSource, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText)
+const singleRoot = resolve(root, '.single-build')
+let single = await readFile(resolve(singleRoot, 'player.html'), 'utf8')
+for (const match of [...single.matchAll(/<script[^>]*src="([^"]+)"[^>]*><\/script>/g)]) {
+  const js = await readFile(resolve(singleRoot, match[1]), 'utf8')
+  single = single.replace(match[0], () => '<script type="module">' + js.replaceAll('</script', '<\\/script') + '</script>')
+}
+for (const match of [...single.matchAll(/<link[^>]*href="([^"]+\.css)"[^>]*>/g)]) { const css = await readFile(resolve(singleRoot, match[1]), 'utf8'); single = single.replace(match[0], () => '<style>' + css + '</style>') }
+await writeFile(resolve(target, 'single.html'), single)
 const files = []
 async function walk(dir) { for (const item of await readdir(dir, { withFileTypes: true })) { const path = resolve(dir, item.name); if (item.isDirectory()) await walk(path); else files.push(relative(target, path).replaceAll('\\', '/')) } }
 await walk(target)

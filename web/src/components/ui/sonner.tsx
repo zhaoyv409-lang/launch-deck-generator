@@ -1,10 +1,10 @@
 import {
-  CircleCheckIcon,
-  InfoIcon,
-  Loader2Icon,
-  OctagonXIcon,
-  TriangleAlertIcon,
-} from "lucide-react"
+  Check as CircleCheckIcon,
+  CircleHelp as InfoIcon,
+  RotateCcw as Loader2Icon,
+  AlertTriangle as OctagonXIcon,
+  AlertTriangle as TriangleAlertIcon,
+} from "@/WorkbenchIcons"
 import { useTheme } from "next-themes"
 import { Toaster as Sonner, type ToasterProps } from "sonner"
 

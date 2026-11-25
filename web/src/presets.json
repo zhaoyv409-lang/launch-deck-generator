@@ -1,20 +1,673 @@
 [
-  {"id":"title","name":"只说一句","description":"1 个主标题 · 纯文字","headings":1,"texts":0,"photos":0,"composition":"opening","align":"center"},
-  {"id":"statement","name":"两行主张","description":"2 个主标题 + 1 段小文本","headings":2,"texts":1,"photos":0,"composition":"opening","align":"center"},
-  {"id":"story","name":"一段叙事","description":"1 个主标题 + 2 段小文本","headings":1,"texts":2,"photos":0,"composition":"opening","align":"left"},
-  {"id":"image","name":"一张照片","description":"1 张图片 · 无文字","headings":0,"texts":0,"photos":1,"composition":"editorial","align":"left"},
-  {"id":"caption","name":"一图一文","description":"1 个主标题 + 1 段小文本 + 1 张图","headings":1,"texts":1,"photos":1,"composition":"editorial","align":"left"},
-  {"id":"caption-story","name":"一图叙事","description":"1 个主标题 + 2 段小文本 + 1 张图","headings":1,"texts":2,"photos":1,"composition":"editorial","align":"left"},
-  {"id":"pair","name":"双图对话","description":"1 个主标题 + 1 段小文本 + 2 张图","headings":1,"texts":1,"photos":2,"composition":"editorial","align":"left"},
-  {"id":"duet","name":"双图叙事","description":"2 个主标题 + 2 段小文本 + 2 张图","headings":2,"texts":2,"photos":2,"composition":"editorial","align":"left"},
-  {"id":"trio","name":"三图灵感","description":"2 个主标题 + 2 段小文本 + 3 张图","headings":2,"texts":2,"photos":3,"composition":"opening","align":"left"},
-  {"id":"quartet","name":"四图故事","description":"1 个主标题 + 1 段小文本 + 4 张图","headings":1,"texts":1,"photos":4,"composition":"gallery","align":"left"},
-  {"id":"gallery","name":"六图画廊","description":"1 个主标题 + 1 段小文本 + 6 张图","headings":1,"texts":1,"photos":6,"composition":"gallery","align":"left"},
-  {"id":"cinema","name":"影像时刻","description":"1 个主标题 + 1 段小文本 + 视频","headings":1,"texts":1,"photos":0,"composition":"cinema","align":"left"},
-  {"id":"cinema-quote","name":"影像主张","description":"2 个主标题 + 1 段小文本 + 视频","headings":2,"texts":1,"photos":0,"composition":"cinema","align":"left"},
-  {"id":"film","name":"纯影像","description":"整屏视频 · 无文字","headings":0,"texts":0,"photos":0,"composition":"cinema","align":"left"},
-  {"id":"chart-line","name":"趋势图表","description":"1 个主标题 + 1 段小文本 + 折线图","headings":1,"texts":1,"photos":0,"composition":"chart","align":"left"},
-  {"id":"chart-full","name":"一页图表","description":"整屏折线图 · 配说明脚注","headings":0,"texts":1,"photos":0,"composition":"chart","align":"center"},
-  {"id":"outro","name":"结尾收束","description":"2 个主标题 · 落幕渐暗到黑","headings":2,"texts":0,"photos":0,"composition":"outro","align":"center"},
-  {"id":"table","name":"信息对照","description":"1 个主标题 + 2 段小文本 + 表格","headings":1,"texts":2,"photos":0,"composition":"table","align":"left"}
+  {
+    "id": "title",
+    "name": "只说一句",
+    "description": "1 个主标题 · 纯文字",
+    "headings": 1,
+    "texts": 0,
+    "photos": 0,
+    "composition": "opening",
+    "align": "center",
+    "sampleHeadings": [
+      "让这一刻，被记住。"
+    ]
+  },
+  {
+    "id": "statement",
+    "name": "两行主张",
+    "description": "两行主标题 + 1 段小文本",
+    "headings": 2,
+    "texts": 1,
+    "photos": 0,
+    "composition": "opening",
+    "align": "center",
+    "sampleHeadings": [
+      "好的设计，是隐形的。",
+      "好的表达，也是。"
+    ],
+    "sampleTexts": [
+      "我们不制造噪音，只传递值得听的话。"
+    ]
+  },
+  {
+    "id": "story",
+    "name": "一段叙事",
+    "description": "1 个主标题 + 2 段小文本",
+    "headings": 1,
+    "texts": 2,
+    "photos": 0,
+    "composition": "opening",
+    "align": "left",
+    "sampleHeadings": [
+      "从一个问题开始。"
+    ],
+    "sampleTexts": [
+      "三年前我们问：为什么做一场发布这么难？",
+      "今天，我们把答案交到你手上。"
+    ]
+  },
+  {
+    "id": "image",
+    "name": "一张照片",
+    "description": "1 张图片 · 无文字",
+    "headings": 0,
+    "texts": 0,
+    "photos": 1,
+    "composition": "editorial",
+    "align": "left"
+  },
+  {
+    "id": "caption",
+    "name": "一图一文",
+    "description": "1 个主标题 + 1 段小文本 + 1 张图",
+    "headings": 1,
+    "texts": 1,
+    "photos": 1,
+    "composition": "editorial",
+    "align": "left",
+    "sampleHeadings": [
+      "山海之间，自有答案。"
+    ],
+    "sampleTexts": [
+      "把镜头对准真正重要的地方。"
+    ]
+  },
+  {
+    "id": "caption-story",
+    "name": "一图叙事",
+    "description": "1 个主标题 + 2 段小文本 + 1 张图",
+    "headings": 1,
+    "texts": 2,
+    "photos": 1,
+    "composition": "editorial",
+    "align": "left",
+    "sampleHeadings": [
+      "一张图，胜过一千句。"
+    ],
+    "sampleTexts": [
+      "这是清晨五点的海岸线。",
+      "光还没完全亮起来，但方向已经清楚了。"
+    ]
+  },
+  {
+    "id": "pair",
+    "name": "双图对话",
+    "description": "1 个主标题 + 1 段小文本 + 2 张图",
+    "headings": 1,
+    "texts": 1,
+    "photos": 2,
+    "composition": "editorial",
+    "align": "left",
+    "sampleHeadings": [
+      "两种风景，一种心境。"
+    ],
+    "sampleTexts": [
+      "左边是出发，右边是到达。"
+    ]
+  },
+  {
+    "id": "duet",
+    "name": "双图叙事",
+    "description": "两行主标题 + 2 段小文本 + 2 张图",
+    "headings": 2,
+    "texts": 2,
+    "photos": 2,
+    "composition": "editorial",
+    "align": "left",
+    "sampleHeadings": [
+      "路上，与到达。"
+    ],
+    "sampleTexts": [
+      "风景在窗外，答案在心里。",
+      "每一步，都算数。"
+    ]
+  },
+  {
+    "id": "trio",
+    "name": "三图灵感",
+    "description": "两行主标题 + 2 段小文本 + 3 张图",
+    "headings": 2,
+    "texts": 2,
+    "photos": 3,
+    "composition": "opening",
+    "align": "left",
+    "sampleHeadings": [
+      "让灵感，",
+      "自然发生。"
+    ],
+    "sampleTexts": [
+      "不用把想法装进方框。",
+      "用流动的色彩、文字和影像，讲述你的下一次发布。"
+    ]
+  },
+  {
+    "id": "quartet",
+    "name": "四图故事",
+    "description": "1 个主标题 + 1 段小文本 + 4 张图",
+    "headings": 1,
+    "texts": 1,
+    "photos": 4,
+    "composition": "gallery",
+    "align": "left",
+    "sampleHeadings": [
+      "四个瞬间，一个故事。"
+    ],
+    "sampleTexts": [
+      "起承转合，都在画面里。"
+    ]
+  },
+  {
+    "id": "gallery",
+    "name": "六图画廊",
+    "description": "1 个主标题 + 1 段小文本 + 6 张图",
+    "headings": 1,
+    "texts": 1,
+    "photos": 6,
+    "composition": "gallery",
+    "align": "left",
+    "sampleHeadings": [
+      "从山海之间，收集灵感。"
+    ],
+    "sampleTexts": [
+      "海浪、林间与晨雾。把看见的美好，带进下一次表达。"
+    ]
+  },
+  {
+    "id": "cinema",
+    "name": "影像时刻",
+    "description": "1 个主标题 + 1 段小文本 + 视频",
+    "headings": 1,
+    "texts": 1,
+    "photos": 0,
+    "composition": "cinema",
+    "align": "left",
+    "sampleHeadings": [
+      "让故事，自己流动。"
+    ],
+    "sampleTexts": [
+      "有些美好，适合用一段影像讲述。"
+    ]
+  },
+  {
+    "id": "cinema-quote",
+    "name": "影像主张",
+    "description": "两行主标题 + 1 段小文本 + 视频",
+    "headings": 2,
+    "texts": 1,
+    "photos": 0,
+    "composition": "cinema",
+    "align": "left",
+    "sampleHeadings": [
+      "画面会说话，",
+      "文字负责点睛。"
+    ],
+    "sampleTexts": [
+      "先看，再读。"
+    ]
+  },
+  {
+    "id": "film",
+    "name": "纯影像",
+    "description": "整屏视频 · 无文字",
+    "headings": 0,
+    "texts": 0,
+    "photos": 0,
+    "composition": "cinema",
+    "align": "left"
+  },
+  {
+    "id": "chart-line",
+    "name": "趋势图表",
+    "description": "1 个主标题 + 1 段小文本 + 折线图",
+    "headings": 1,
+    "texts": 1,
+    "photos": 0,
+    "composition": "chart",
+    "align": "left",
+    "sampleHeadings": [
+      "增长，在正确的方向上。"
+    ],
+    "sampleTexts": [
+      "过去六个月，曲线只做过一件事：向上。"
+    ]
+  },
+  {
+    "id": "chart-bar",
+    "name": "柱状图表",
+    "description": "1 个主标题 + 1 段小文本 + 柱状图",
+    "headings": 1,
+    "texts": 1,
+    "photos": 0,
+    "composition": "chart",
+    "align": "left",
+    "sampleHeadings": [
+      "每一根柱子，都是一个月的硬仗。"
+    ],
+    "sampleTexts": [
+      "数字不撒谎。"
+    ]
+  },
+  {
+    "id": "chart-pie",
+    "name": "占比饼图",
+    "description": "1 个主标题 + 1 段小文本 + 饼状图",
+    "headings": 1,
+    "texts": 1,
+    "photos": 0,
+    "composition": "chart",
+    "align": "left",
+    "sampleHeadings": [
+      "精力有限，配比要有数。"
+    ],
+    "sampleTexts": [
+      "我们把 70% 的投入，给了最重要的事。"
+    ]
+  },
+  {
+    "id": "chart-full",
+    "name": "一页图表",
+    "description": "整屏折线图 · 配说明脚注",
+    "headings": 0,
+    "texts": 1,
+    "photos": 0,
+    "composition": "chart",
+    "align": "center",
+    "sampleTexts": [
+      "这张图上没有形容词，只有事实。"
+    ]
+  },
+  {
+    "id": "outro",
+    "name": "结尾收束",
+    "description": "两行主标题 · 落幕渐暗到黑",
+    "headings": 2,
+    "texts": 0,
+    "photos": 0,
+    "composition": "outro",
+    "align": "center",
+    "sampleHeadings": [
+      "让想法，被看见。",
+      "自然发生。"
+    ]
+  },
+  {
+    "id": "outro-thanks",
+    "name": "一句致谢",
+    "description": "1 个主标题 + 1 段小文本 · 落幕渐暗",
+    "headings": 1,
+    "texts": 1,
+    "photos": 0,
+    "composition": "outro",
+    "align": "center",
+    "sampleHeadings": [
+      "谢谢每一次在场。"
+    ],
+    "sampleTexts": [
+      "感谢同行，下次见。"
+    ]
+  },
+  {
+    "id": "outro-sign",
+    "name": "品牌落款",
+    "description": "两行主标题 + 1 段小文本 · 落款收尾",
+    "headings": 2,
+    "texts": 1,
+    "photos": 0,
+    "composition": "outro",
+    "align": "center",
+    "sampleHeadings": [
+      "品牌名",
+      "一场自然发生的发布"
+    ],
+    "sampleTexts": [
+      "2026 · 与 12,000 位创作者同行"
+    ]
+  },
+  {
+    "id": "table",
+    "name": "信息对照",
+    "description": "1 个主标题 + 2 段小文本 + 表格",
+    "headings": 1,
+    "texts": 2,
+    "photos": 0,
+    "composition": "table",
+    "align": "left",
+    "sampleHeadings": [
+      "让想法，被看见。"
+    ],
+    "sampleTexts": [
+      "留一点空间，让内容自然发生。",
+      "留一点空间，让内容自然发生。"
+    ]
+  },
+  {
+    "id": "table-metrics",
+    "name": "数据速览",
+    "description": "1 个主标题 + 1 段小文本 + 表格",
+    "headings": 1,
+    "texts": 1,
+    "photos": 0,
+    "composition": "table",
+    "align": "left",
+    "sampleHeadings": [
+      "数字，自己会说话。"
+    ],
+    "sampleTexts": [
+      "三个季度，三个台阶。"
+    ],
+    "sampleTable": [
+      [
+        "指标",
+        "Q2",
+        "Q3",
+        "Q4"
+      ],
+      [
+        "活跃用户",
+        "8.2 万",
+        "12.4 万",
+        "18.9 万"
+      ],
+      [
+        "续约率",
+        "81%",
+        "86%",
+        "91%"
+      ],
+      [
+        "NPS",
+        "42",
+        "51",
+        "58"
+      ]
+    ]
+  },
+  {
+    "id": "table-focus",
+    "name": "居中对照",
+    "description": "1 个主标题 + 居中表格",
+    "headings": 1,
+    "texts": 0,
+    "photos": 0,
+    "composition": "table",
+    "align": "center",
+    "sampleHeadings": [
+      "两种方案，一种答案。"
+    ],
+    "sampleTable": [
+      [
+        "维度",
+        "方案 A",
+        "方案 B"
+      ],
+      [
+        "上手成本",
+        "低",
+        "中"
+      ],
+      [
+        "长期上限",
+        "中",
+        "高"
+      ],
+      [
+        "我们的选择",
+        "—",
+        "✓"
+      ]
+    ]
+  },
+  {
+    "id": "table-notes",
+    "name": "表格叙事",
+    "description": "两行主标题 + 1 段小文本 + 表格",
+    "headings": 2,
+    "texts": 1,
+    "photos": 0,
+    "composition": "table",
+    "align": "left",
+    "sampleHeadings": [
+      "先给结论。",
+      "数据在后面。"
+    ],
+    "sampleTexts": [
+      "增长不是意外，是设计出来的。"
+    ],
+    "sampleTable": [
+      [
+        "月份",
+        "新增",
+        "留存"
+      ],
+      [
+        "一月",
+        "1,204",
+        "92%"
+      ],
+      [
+        "二月",
+        "1,866",
+        "93%"
+      ],
+      [
+        "三月",
+        "2,731",
+        "95%"
+      ]
+    ]
+  },
+  {
+    "id": "screenshot-focus",
+    "name": "大幅截图",
+    "description": "标题、说明与一张完整截图",
+    "photos": 1,
+    "headings": 1,
+    "texts": 1,
+    "composition": "gallery",
+    "align": "left",
+    "category": "screens",
+    "sampleHeadings": [
+      "大幅截图"
+    ],
+    "sampleTexts": [
+      "为图片补充简短说明。"
+    ]
+  },
+  {
+    "id": "screenshot-pair",
+    "name": "双图对照",
+    "description": "两张等大的完整图片，可分别标注",
+    "photos": 2,
+    "headings": 1,
+    "texts": 1,
+    "composition": "gallery",
+    "align": "left",
+    "category": "screens",
+    "sampleHeadings": [
+      "双图对照"
+    ],
+    "sampleTexts": [
+      "为图片补充简短说明。"
+    ]
+  },
+  {
+    "id": "screenshot-trio",
+    "name": "三图并列",
+    "description": "三张独立图片，摆正排列",
+    "photos": 3,
+    "headings": 1,
+    "texts": 1,
+    "composition": "gallery",
+    "align": "left",
+    "category": "screens",
+    "sampleHeadings": [
+      "三图并列"
+    ],
+    "sampleTexts": [
+      "为图片补充简短说明。"
+    ]
+  },
+  {
+    "id": "screenshot-grid",
+    "name": "四图对照",
+    "description": "四张完整图片，等大的两行两列",
+    "photos": 4,
+    "headings": 1,
+    "texts": 1,
+    "composition": "gallery",
+    "align": "left",
+    "category": "screens",
+    "sampleHeadings": [
+      "四图对照"
+    ],
+    "sampleTexts": [
+      "为图片补充简短说明。"
+    ]
+  },
+  {
+    "id": "screenshot-six",
+    "name": "六图总览",
+    "description": "六张独立图片，整齐排列",
+    "photos": 6,
+    "headings": 1,
+    "texts": 1,
+    "composition": "gallery",
+    "align": "left",
+    "category": "screens",
+    "sampleHeadings": [
+      "六图总览"
+    ],
+    "sampleTexts": [
+      "为图片补充简短说明。"
+    ]
+  },
+  {
+    "id": "report-pair",
+    "name": "双页报告",
+    "description": "两张纵向报告，完整显示页面",
+    "photos": 2,
+    "headings": 1,
+    "texts": 1,
+    "composition": "gallery",
+    "align": "left",
+    "category": "screens",
+    "sampleHeadings": [
+      "双页报告"
+    ],
+    "sampleTexts": [
+      "为图片补充简短说明。"
+    ]
+  },
+  {
+    "id": "evidence-stack",
+    "name": "主图与细节",
+    "description": "一张主图、两张局部图，分别说明",
+    "photos": 3,
+    "headings": 1,
+    "texts": 1,
+    "composition": "gallery",
+    "align": "left",
+    "category": "screens",
+    "sampleHeadings": [
+      "主图与细节"
+    ],
+    "sampleTexts": [
+      "为图片补充简短说明。"
+    ]
+  },
+  {
+    "id": "process-steps",
+    "name": "步骤与交付",
+    "description": "四个可编辑步骤，说明职责和交付物",
+    "photos": 0,
+    "headings": 1,
+    "texts": 1,
+    "composition": "table",
+    "align": "left",
+    "sampleHeadings": [
+      "业务流程与交付物"
+    ],
+    "sampleTexts": [
+      "每个环节明确输入、处理与输出。"
+    ],
+    "sampleTable": [
+      [
+        "步骤",
+        "处理内容",
+        "交付物"
+      ],
+      [
+        "资料核对",
+        "核对原始材料与缺项",
+        "资料清单"
+      ],
+      [
+        "条件比对",
+        "逐项核对要求",
+        "差异明细"
+      ],
+      [
+        "人工复核",
+        "审核依据与现场条件",
+        "审核记录"
+      ],
+      [
+        "持续反馈",
+        "记录变化并重新复核",
+        "反馈台账"
+      ]
+    ]
+  },
+  {
+    "id": "table-detail",
+    "name": "明细对照表",
+    "description": "更多行列、交替底色与状态强调",
+    "photos": 0,
+    "headings": 1,
+    "texts": 1,
+    "composition": "table",
+    "align": "left",
+    "sampleHeadings": [
+      "明细与状态对照"
+    ],
+    "sampleTexts": [
+      "保留依据、状态和待办事项。"
+    ],
+    "sampleTable": [
+      [
+        "事项",
+        "当前信息",
+        "依据",
+        "状态"
+      ],
+      [
+        "信息核对",
+        "已填写",
+        "原始材料",
+        "待复核"
+      ],
+      [
+        "规则核对",
+        "已匹配",
+        "规则版本",
+        "待确认"
+      ]
+    ]
+  },
+  {
+    "id": "chart-insight",
+    "name": "图表与明细",
+    "description": "图形、图例、单位与数据表同时展示",
+    "photos": 0,
+    "headings": 1,
+    "texts": 1,
+    "composition": "chart",
+    "align": "left",
+    "sampleHeadings": [
+      "数据对照与明细"
+    ],
+    "sampleTexts": [
+      "图形与数值一起查看。"
+    ]
+  }
 ]
