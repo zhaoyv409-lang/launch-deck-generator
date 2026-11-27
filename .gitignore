@@ -22,3 +22,6 @@ logs/
 
 # 子项目自带 web/.gitignore
 node_modules
+
+# 本地 AI 工作说明
+CLAUDE.md
